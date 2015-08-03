@@ -43,6 +43,13 @@
         var map = new google.maps.Map(document.getElementById("map"),mapOptions);
 
         //create a marker
+
+        var markerList=[];
+        for(i=0;i<5;i++)
+        {
+            coords= new google.maps.LatLng(mylat+i*10,mylong+i*10);
+            markerList[i]= new google.maps.Marker({map:map,position:coords});
+        }
         var marker = new google.maps.Marker({map:map,position:coords});
     }
 
