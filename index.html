@@ -51,6 +51,10 @@
             markerList[i]= new google.maps.Marker({map:map,position:coords});
         }
         var marker = new google.maps.Marker({map:map,position:coords});
+        
+        coords= new google.maps.LatLng(mylat+i*10,mylong+i*10);
+        var marker = new google.maps.Marker({map:map,position:coords});
+
     }
 
     function failure(position)
