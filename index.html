@@ -22,7 +22,7 @@
         var mylat = position.coords.latitude;
         var mylong= position.coords.longitude;
 
-        
+
         $('#lat').html(mylat);
         $('#long').html(mylong);
 
@@ -31,8 +31,8 @@
         var coords= new google.maps.LatLng(mylat,mylong);
          $('#long').html(mylong);
         //setts up our google map
-        var mapOptions =
-        {   //zoom goes up to 20ish, ROADMAP can switch to Sattile
+        var mapOptions ={   
+        //zoom goes up to 20ish, ROADMAP can switch to Sattile
             zoom: 16,
             center: coords,
             mapTypeId: google.maps.mapTypeId.ROADMAP
@@ -48,11 +48,17 @@
 
 </script>
 
+<style>
+    #map{
+        width:600px; 
+        height:400px;
+    }
+</style>
 <div id="lat"></div>
 <div id="long"></div>
 
 <!--This is where the map place holder goes-->
-<div id="map" class="col-xs-12" style:"width:100%; height:auto;"></div>
+<div id="map"></div>
 
 <script src="js/jquery-1.11.3.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
