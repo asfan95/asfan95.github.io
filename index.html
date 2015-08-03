@@ -5,12 +5,18 @@
   <title>Khan Korp</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="shortcut icon" href="pic/tab_Icon.PNG">
 
 </head>
 
 <body>
+
+<!--This is where the map place holder goes-->
+<div id="map">
+
+</div>
 
 <p id="demo">Click the button to get your position.</p>
 
@@ -19,7 +25,28 @@
 <div id="mapholder"></div>
 
 <script>
+    x=navigator.geolocation;
+    x.getCurrentPosition(success,failure);
+    function success(position)
+    {
+        var mylat = position.coords.latitude;
+        var mylong= position.coords.longitude;
+        $('#lat').html(mylat);
+        $('#long').html(mylong);
+
+    }
+    function failure(position)
+    {
+        $('#lat').html("<p>Could not find the coords</p>");
+    }
+
 </script>
+
+<div id="lat"></div>
+<div id="long"></div>
+
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 
 </body>
 </html>
