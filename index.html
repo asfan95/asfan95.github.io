@@ -13,24 +13,29 @@
 
 <body>
 
-<!--This is where the map place holder goes-->
-<div id="map">
-
-</div>
-
-<p id="demo">Click the button to get your position.</p>
-
-<button onclick="getLocation()">Try It</button>
-
-<div id="mapholder"></div>
-
 <script>
     x=navigator.geolocation;
     x.getCurrentPosition(success,failure);
     function success(position)
     {
+        //gets your coordinates
         var mylat = position.coords.latitude;
         var mylong= position.coords.longitude;
+
+        //Google-API-ready latitude and longiude string
+        var coords=new google.maps.LatLng(mylat,mylong);
+
+        //setts up our google map
+        var mapOptions=
+        {   //zoom goes up to 20ish, ROADMAP can switch to Sattile
+            zoom:1,
+            center: coords,
+            mapTypeId: google.maps.mapTypeId.ROADMAP
+        }
+
+        //create the map
+        var map= new google.maps.Map(document.getElementById("map"),mapOptions)
+
         $('#lat').html(mylat);
         $('#long').html(mylong);
 
@@ -44,6 +49,9 @@
 
 <div id="lat"></div>
 <div id="long"></div>
+
+<!--This is where the map place holder goes-->
+<div id="map" class="col-xs-12" style:"width:100%; height:auto;"></div>
 
 <script src="js/jquery-1.11.3.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
