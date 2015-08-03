@@ -31,13 +31,13 @@
 
         //Google-API-ready latitude and longiude string
         var coords= new google.maps.LatLng(mylat,mylong);
-         $('#long').html(mylong);
+        
         //setts up our google map
         var mapOptions ={   
         //zoom goes up to 20ish, ROADMAP can switch to Sattile
             zoom: 16,
             center: coords,
-            mapTypeId: google.maps.mapTypeId.ROADMAP
+            mapTypeId: google.maps.MapTypeId.ROADMAP
         }
 
         //create the map
