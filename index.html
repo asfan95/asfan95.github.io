@@ -22,9 +22,7 @@
         var mylong= position.coords.longitude;
 
 
-        $('#lat').html(mylat);
-        $('#long').html(mylong);
-
+    
 
         //Google-API-ready latitude and longiude string
         var coords= new google.maps.LatLng(mylat,mylong);
@@ -36,7 +34,7 @@
             center: coords,
             mapTypeId: google.maps.mapTypeId.ROADMAP
         }
-         $('#long').html(mylong);
+        $('#lat').html(mylat);
         //create the map
         var map = new google.maps.Map(document.getElementById("map"),mapOptions);
     }
