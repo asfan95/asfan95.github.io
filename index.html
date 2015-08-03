@@ -34,7 +34,7 @@
         //setts up our google map
         var mapOptions ={   
         //zoom goes up to 20ish, ROADMAP can switch to Sattile
-            zoom: 16,
+            zoom: 10,
             center: coords,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
@@ -43,18 +43,17 @@
         var map = new google.maps.Map(document.getElementById("map"),mapOptions);
 
         //create a marker
+        var marker = new google.maps.Marker({map:map,position:coords});
 
         var markerList=[];
-        for(i=0;i<5;i++)
-        {
-            coords= new google.maps.LatLng(mylat+i*10,mylong+i*10);
-            markerList[i]= new google.maps.Marker({map:map,position:coords});
-        }
-        var marker = new google.maps.Marker({map:map,position:coords});
-        
-        coords= new google.maps.LatLng(mylat+i*10,mylong+i*10);
-        var marker = new google.maps.Marker({map:map,position:coords});
+        var coordsList=[];
 
+        coordsList[0]= new google.maps.LatLng(30,30);
+        coordsList[1]= new google.maps.LatLng(30,30);
+
+        markerList[0]= new google.maps.Marker({map:map,position:coordsList[0]});
+        markerList[1]= new google.maps.Marker({map:map,position:coordsList[1]});
+        
     }
 
     function failure(position)
