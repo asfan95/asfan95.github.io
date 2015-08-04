@@ -16,32 +16,44 @@
 </head>
 
 <body>
+<div class="container-fluid">
 
-<div id="map" class="map"></div>
-
-<label class="checkbox" for="track">
+<div class="row-fluid">
+  <div class="span12">
+    <div id="map" class="map"></div>
+    <div class="span4 pull-right">
+      <div id="info" class="alert alert-error" style="display: none;"></div>
+    </div>
+    <label class="checkbox" for="track">
       <input id="track" type="checkbox"/>track position
-</label>
+    </label>
+    <p>position accuracy : <code id="accuracy"></code></p>
+    <p>altitude : <code id="altitude"></code></p>
+    <p>altitude accuracy : <code id="altitudeAccuracy"></code></p>
+    <p>heading : <code id="heading"></code></p>
+    <p>speed : <code id="speed"></code></p>
+  </div>
+</div>
 
+</div>
 <script>
 var view = new ol.View({
-  center: [30, 30],
-  zoom: 4
+  center: [0, 0],
+  zoom: 2
 });
 
 var map = new ol.Map({
-  controls: ol.control.defaults().extend([
-    new ol.control.FullScreen()
-  ]),
   layers: [
     new ol.layer.Tile({
-      source: new ol.source.BingMaps({
-        key: 'Ak-dzM4wZjSqTlzveKz5u0d4IQ4bRzVI309GxmkgSVr1ewS6iPSrOvOKhA-CJlm3',
-        imagerySet: 'Aerial'
-      })
+      source: new ol.source.OSM()
     })
   ],
   target: 'map',
+  controls: ol.control.defaults({
+    attributionOptions: /** @type {olx.control.AttributionOptions} */ ({
+      collapsible: false
+    })
+  }),
   view: view
 });
 
@@ -104,8 +116,8 @@ var featuresOverlay = new ol.layer.Vector({
     features: [accuracyFeature, positionFeature]
   })
 });
-</script>
 
+</script>
 <script src="js/jquery-1.11.3.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 
