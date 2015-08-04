@@ -15,33 +15,38 @@
 
 <body>
 
-<div id="map" class="map"></div>
+<div class="container-fluid">
 
+<div class="row-fluid">
+  <div class="span12">
+    <div id="map" class="map"></div>
+  </div>
+</div>
+
+</div>
 <script>
-    var view = new ol.View({center: [0, 0], zoom: 2});
-    var map = new ol.Map({
-     layers: [
+var view = new ol.View({
+  center: [-9101767, 2822912],
+  zoom: 14
+});
+
+var map = new ol.Map({
+  controls: ol.control.defaults().extend([
+    new ol.control.FullScreen()
+  ]),
+  layers: [
     new ol.layer.Tile({
-      source: new ol.source.OSM()
+      source: new ol.source.BingMaps({
+        key: 'Ak-dzM4wZjSqTlzveKz5u0d4IQ4bRzVI309GxmkgSVr1ewS6iPSrOvOKhA-CJlm3',
+        imagerySet: 'Aerial'
+      })
     })
   ],
   target: 'map',
-  controls: ol.control.defaults({
-    attributionOptions: /** @type {olx.control.AttributionOptions} */ ({
-      collapsible: false
-    })
-  }),
   view: view
 });
 
 </script>
-
-<style>
-    #map{
-        width:600px; 
-        height:400px;
-    }
-</style>
 
 <script src="js/jquery-1.11.3.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
