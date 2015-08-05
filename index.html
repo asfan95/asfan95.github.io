@@ -68,6 +68,13 @@ function onLocationFound(e) {
 }
 
 map.on('locationfound', onLocationFound);
+
+function onLocationError(e) {
+    alert(e.message);
+}
+
+map.on('locationerror', onLocationError);
+
 </script>
 
 <script src="js/jquery-1.11.3.min.js"></script>
