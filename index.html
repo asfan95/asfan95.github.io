@@ -17,10 +17,37 @@
 
 <body>
 
-<div id="map" style="height: 0400px;"></div>
+<!--This is the title area-->
+<div class="col-xs-12" style="background-color:#1F1F1F">
+  <div class="text-center col-xs-12" style="color:white; font-size:9vw;">T i t l e</div>
+  <div class="col-xs-0">
+  </div>
+</div>
+<div class="col-xs-12" style="background-color:Dimgray; padding:5px;"></div>
+
+<!--map area-->
+<div class="col-xs-12" id="map" style="height: 500px;"></div>
+<div class="col-xs-12" style="background-color:Dimgray; padding:5px;"></div>
+
+<!--The information aprt-->
+<div class="col-xs-12" style="background-color:#1F1F1F">
+  <div class="col-xs-4  text-center" style="color:white; font-size:4vw;">
+    Contact Info
+  </div>
+  <div class="col-xs-4  text-center" style="color:white; font-size:4vw;">
+    About Us
+  </div>
+  <div class="col-xs-4  text-center" style="color:white; font-size:4vw;">
+    Careers
+  </div> 
+</div>
+
+<div class="col-xs-12" style="background-color:Dimgray; padding:1px;"></div>
+<div class="col-xs-12" style="background-color:#1F1F1F; padding:119px;"></div>
+
 
 <script>
-var map = L.map('map').setView([51.505, -0.09], 13);
+var map = L.map('map').setView([51.505, -0.09], 2);
 
 L.tileLayer( 'http://{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://osm.org/copyright" title="OpenStreetMap" target="_blank">OpenStreetMap</a> contributors | Tiles Courtesy of <a href="http://www.mapquest.com/" title="MapQuest" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png" width="16" height="16">',
@@ -28,7 +55,7 @@ L.tileLayer( 'http://{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png', {
 }).addTo( map );
 
 //this finds your location
-map.locate({setView: true, maxZoom: 16});
+map.locate({setView: true, maxZoom: 15});
 
 function onLocationFound(e) {
     var radius = e.accuracy / 2;
@@ -39,7 +66,15 @@ function onLocationFound(e) {
     L.circle(e.latlng, radius).addTo(map);
 }
 
+map.panTo([50, 30]);
 map.on('locationfound', onLocationFound);
+
+
+// Disable drag and zoom handlers.
+map.dragging.disable();
+map.touchZoom.disable();
+map.doubleClickZoom.disable();
+map.scrollWheelZoom.disable();
 
 </script>
 
