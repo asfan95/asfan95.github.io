@@ -5,9 +5,9 @@
   <meta charset="utf-8">
   <title>Khan Korp</title>
     
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css"/>
 
-  <link rel="shortcut icon" href="pic/tab_Icon.PNG">
+  <link rel="shortcut icon" href="pic/tab_Icon.PNG"/>
 
   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
 
@@ -55,15 +55,12 @@ L.tileLayer( 'http://{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png', {
     subdomains: ['otile1','otile2','otile3','otile4']
 }).addTo( map );
 
-map.on('click', function(e) {
-    alert("Lat, Lon : " + e.latlng.lat + ", " + e.latlng.lng)
-});
+
 //this finds your location
 map.locate({setView: true, maxZoom: 16});
 
-var map = L.map('map').setView([lan, -0.09], 2);
-
-function onLocationFound(e) {
+function onLocationFound(e) 
+{
     var radius = e.accuracy / 2;
 
     L.marker(e.latlng).addTo(map)
@@ -74,11 +71,9 @@ function onLocationFound(e) {
 
 map.on('locationfound', onLocationFound);
 
-function onLocationError(e) {
-    alert(e.message);
-}
 
 map.on('locationerror', onLocationError);
+
 </script>
 
 <script src="js/jquery-1.11.3.min.js"></script>
