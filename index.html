@@ -41,6 +41,7 @@
     Careers
   </div> 
 </div>
+<button onclick="onLocationFound(e)">Click Me!</button>
 
 <div class="col-xs-12" style="background-color:Dimgray; padding:1px;"></div>
 <div class="col-xs-12" style="background-color:#1F1F1F; padding:119px;"></div>
@@ -70,7 +71,11 @@ function onLocationFound(e)
 map.on('locationfound', onLocationFound);
 
 
-
+// Disable drag and zoom handlers.
+map.dragging.disable();
+map.touchZoom.disable();
+map.doubleClickZoom.disable();
+map.scrollWheelZoom.disable();
 
 </script>
 
