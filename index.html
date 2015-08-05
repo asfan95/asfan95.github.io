@@ -41,8 +41,8 @@
     Careers
   </div> 
 </div>
-<button onclick="onLocationFound(e)">Click Me!</button>
-<button onclick="onLocationFound(e)">Click Me!</button>
+<button onclick="">Click Me!</button>
+<button onclick="">Click Me!</button>
 <div class="col-xs-12" style="background-color:Dimgray; padding:1px;"></div>
 <div class="col-xs-12" style="background-color:#1F1F1F; padding:119px;"></div>
 
@@ -55,22 +55,25 @@ L.tileLayer( 'http://{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png', {
     subdomains: ['otile1','otile2','otile3','otile4']
 }).addTo( map );
 
+map.on('click', function(e) {
+    alert("Lat, Lon : " + e.latlng.lat + ", " + e.latlng.lng)
+});
 //this finds your location
 map.locate({setView: true, maxZoom: 16});
 
 var map = L.map('map').setView([lan, -0.09], 2);
 
-
+function onLocationFound(e) {
     var radius = e.accuracy / 2;
 
     L.marker(e.latlng).addTo(map)
         .bindPopup("You are within " + radius + " meters from this point").openPopup();
 
     L.circle(e.latlng, radius).addTo(map);
-
+}
 
 map.on('locationfound', onLocationFound);
-L.marker(e.latlng).addTo(map);
+
 function onLocationError(e) {
     alert(e.message);
 }
