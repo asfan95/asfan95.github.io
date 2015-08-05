@@ -19,7 +19,7 @@
 
 <!--This is the title area-->
 <div class="col-xs-12" style="background-color:#1F1F1F">
-  <div class="text-center col-xs-12" style="color:white; font-size:9vw;">T i t l e</div>
+  <h1 class="col-xs-12 text-center" style="font-size:8vw; letter-spacing: 6px; word-spacing:5px;">FLEXXI<small><i style="font-size:3vw;">"Schedule It Your Way"<i></small></h1>
   <div class="col-xs-0">
   </div>
 </div>
@@ -41,7 +41,6 @@
     Careers
   </div> 
 </div>
-<button onclick="">Click Me!</button>
 <div class="col-xs-12" style="background-color:Dimgray; padding:1px;"></div>
 <div class="col-xs-12" style="background-color:#1F1F1F; padding:119px;"></div>
 
@@ -54,6 +53,9 @@ L.tileLayer( 'http://{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png', {
     subdomains: ['otile1','otile2','otile3','otile4']
 }).addTo( map );
 
+map.dragging.disable();
+map.touchZoom.disable();
+map.doubleClickZoom.disable();
 
 //this finds your location
 map.locate({setView: true, maxZoom: 16});
